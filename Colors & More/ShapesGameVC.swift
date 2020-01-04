@@ -22,16 +22,19 @@ class ShapesGameVC: UIViewController {
     var shapes = [Shape]()
     var soundArray = ArrayOf()
     var sounds: AVAudioPlayer?
+    var  myTitle = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        playSound()
+        
+        playShapeSound()
         initShapes()
         setDelegates()
         setupCollectionView()
         hideStrikes()
+        
      
     }
     
@@ -69,45 +72,64 @@ extension ShapesGameVC {
     
     fileprivate func initShapes() {
         var colors: [UIColor] = [.black, .blue, .green, .gray, .orange, .brown, .purple, .red, .yellow].shuffled()
-        let pentagon = Shape(image: #imageLiteral(resourceName: "black pentagon"), color: colors[0], type: .Pentagon, sound: .Pentagon)
+        let pentagon = Shape(image: #imageLiteral(resourceName: "black pentagon"), color: colors[0], type: .Pentagon, name: .Pentagon)
         colors.removeFirst()
-        let square = Shape(image: #imageLiteral(resourceName: "blue square"), color: colors[0], type: .Square, sound: .Square)
+        let square = Shape(image: #imageLiteral(resourceName: "blue square"), color: colors[0], type: .Square, name: .Square)
         colors.removeFirst()
-        let oval = Shape(image: #imageLiteral(resourceName: "green oval"), color: colors[0], type: .Oval, sound: .Oval)
+        let oval = Shape(image: #imageLiteral(resourceName: "green oval"), color: colors[0], type: .Oval, name: .Oval)
         colors.removeFirst()
-        let rectangle = Shape(image: #imageLiteral(resourceName: "grey rectangle"), color: colors[0], type: .Rectangle, sound: .Rectangle)
+        let rectangle = Shape(image: #imageLiteral(resourceName: "grey rectangle"), color: colors[0], type: .Rectangle, name: .Rectangle)
         colors.removeFirst()
-        let octagon = Shape(image: #imageLiteral(resourceName: "orange octagon"), color: colors[0], type: .Octogon, sound: .Octagon)
+        let octagon = Shape(image: #imageLiteral(resourceName: "orange octagon"), color: colors[0], type: .Octogon, name: .Octagon)
         colors.removeFirst()
-        let star = Shape(image: #imageLiteral(resourceName: "pink star"), color: colors[0], type: .Star, sound: .Star)
+        let star = Shape(image: #imageLiteral(resourceName: "pink star"), color: colors[0], type: .Star, name: .Star)
         colors.removeFirst()
-        let plus = Shape(image: #imageLiteral(resourceName: "purple plus"), color: colors[0], type: .PlusSign, sound: .PlusSign)
+        let plus = Shape(image: #imageLiteral(resourceName: "purple plus"), color: colors[0], type: .PlusSign, name: .PlusSign)
         colors.removeFirst()
-        let triangle = Shape(image: #imageLiteral(resourceName: "red triangle"), color: colors[0], type: .Triangle, sound: .Triangle)
+        let triangle = Shape(image: #imageLiteral(resourceName: "red triangle"), color: colors[0], type: .Triangle, name: .Triangle)
         colors.removeFirst()
-        let cirle = Shape(image: #imageLiteral(resourceName: "yellow circle"), color: colors[0], type: .Circle, sound: .Circle)
+        let cirle = Shape(image: #imageLiteral(resourceName: "yellow circle"), color: colors[0], type: .Circle, name: .Circle)
         shapes = [pentagon, square, oval, rectangle, octagon, star, plus, triangle, cirle].shuffled()
         
     }
     
-    fileprivate func playSound () {
+    fileprivate func playShapeSound () {
      sounds = AVAudioPlayer()
+        
+        //this pulls a randon string associated with the mp3 files
         let randomShapeSound = soundArray.arrayOfShapeSounds.randomElement()
-        let title = randomShapeSound!.dropLast(4)
+        
+        //this removes the .mp3 on the file
+        myTitle = String(randomShapeSound!.dropLast(4))
+        
         let path = Bundle.main.path(forResource: randomShapeSound, ofType: nil)!
         let url = URL(fileURLWithPath: path)
         
         do {
             sounds = try AVAudioPlayer(contentsOf: url)
             sounds!.play()
-            titleOfPage.text = "Tap The \(title)"
+            
+            //sets the title to match the sound called.
+            titleOfPage.text = "Tap The \(myTitle)"
         } catch {
             print("Couldn't load the file")
         }
-        
     }
     
-}
+    func rightOrWrongSound(rightOrWrong: String) {
+        sounds = AVAudioPlayer()
+        
+    let path = Bundle.main.path(forResource: rightOrWrong, ofType: nil)!
+    let url = URL(fileURLWithPath: path)
+            
+            do {
+                sounds = try AVAudioPlayer(contentsOf: url)
+                sounds!.play()
+            } catch {
+                print("Couldn't load the file")
+            }
+        }
+    }
 
 extension ShapesGameVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -126,6 +148,26 @@ extension ShapesGameVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //Handle user tap
+        var score: Int = 0
+        if let cell = collectionView.cellForItem(at: indexPath) as? ShapeCollectionViewCell {
+           // cell.imageView.image
+            let cellImageTitle = cell.shape.name
+            if cellImageTitle.rawValue == myTitle {
+                rightOrWrongSound(rightOrWrong: "Correct.mp3")
+                score = score + 1
+                print(score)
+                numberOfScore.text = String(score)
+                playShapeSound()
+                viewDidLoad()
+                
+            } else {
+                rightOrWrongSound(rightOrWrong: "Wrong.mp3")
+                strikeOne.isHidden = false
+                strikeOne.imageView?.image = UIImage(named: "rdBGBlkX")
+               // viewDidLoad()
+            }
+            
+           }
     }
 }
 

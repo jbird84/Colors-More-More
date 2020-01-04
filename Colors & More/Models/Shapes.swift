@@ -13,7 +13,7 @@ struct Shape {
     var image: UIImage
     var color: UIColor
     var type: ShapeType
-    var sound: ShapeSound
+    var name: ShapeName
     
     enum ShapeType {
         case Circle
@@ -28,16 +28,16 @@ struct Shape {
         case PlusSign
     }
     
-    enum ShapeSound: String {
-        case Circle = "Circle.m4a"
-        case Octagon = "Octagon.m4a"
-        case Oval = "Oval.m4a"
-        case Pentagon = "Pentagon.m4a"
-        case PlusSign = "PlusSign.m4a"
-        case Square = "Square.m4a"
-        case Star = "Star.m4a"
-        case Triangle = "Triangle.m4a"
-        case Rectangle = "Rectangle.m4a"
+    enum ShapeName: String {
+        case Circle = "Circle"
+        case Octagon = "Octagon"
+        case Oval = "Oval"
+        case Pentagon = "Pentagon"
+        case PlusSign = "Plus Sign"
+        case Square = "Square"
+        case Star = "Star"
+        case Triangle = "Triangle"
+        case Rectangle = "Rectangle"
     }
 }
 

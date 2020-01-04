@@ -18,6 +18,8 @@
 		DA5A4B7E23B82607009118B9 /* Octagon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA5A4B7923B82607009118B9 /* Octagon.mp3 */; };
 		DA5A4B8123B826E0009118B9 /* Triangle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA5A4B7F23B826E0009118B9 /* Triangle.mp3 */; };
 		DA5A4B8223B826E0009118B9 /* Rectangle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA5A4B8023B826E0009118B9 /* Rectangle.mp3 */; };
+		DA5A4B8523B85CD3009118B9 /* Wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA5A4B8323B85CD2009118B9 /* Wrong.mp3 */; };
+		DA5A4B8623B85CD3009118B9 /* Correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA5A4B8423B85CD3009118B9 /* Correct.mp3 */; };
 		DABC2EBB23AEF22E00B67351 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC2EBA23AEF22E00B67351 /* AppDelegate.swift */; };
 		DABC2EBD23AEF22E00B67351 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC2EBC23AEF22E00B67351 /* SceneDelegate.swift */; };
 		DABC2EBF23AEF22E00B67351 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABC2EBE23AEF22E00B67351 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 		DA5A4B7923B82607009118B9 /* Octagon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Octagon.mp3; sourceTree = "<group>"; };
 		DA5A4B7F23B826E0009118B9 /* Triangle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Triangle.mp3; sourceTree = "<group>"; };
 		DA5A4B8023B826E0009118B9 /* Rectangle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rectangle.mp3; sourceTree = "<group>"; };
+		DA5A4B8323B85CD2009118B9 /* Wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wrong.mp3; sourceTree = "<group>"; };
+		DA5A4B8423B85CD3009118B9 /* Correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Correct.mp3; sourceTree = "<group>"; };
 		DABC2EB723AEF22E00B67351 /* Colors & More.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Colors & More.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABC2EBA23AEF22E00B67351 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DABC2EBC23AEF22E00B67351 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		DA5A4B6523B673C8009118B9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				DA5A4B8423B85CD3009118B9 /* Correct.mp3 */,
+				DA5A4B8323B85CD2009118B9 /* Wrong.mp3 */,
 				DA5A4B7623B82607009118B9 /* Circle.mp3 */,
 				DA5A4B8023B826E0009118B9 /* Rectangle.mp3 */,
 				DA5A4B7F23B826E0009118B9 /* Triangle.mp3 */,
@@ -189,6 +195,8 @@
 				DA5A4B7423B825A3009118B9 /* Plus Sign.mp3 in Resources */,
 				DA5A4B7E23B82607009118B9 /* Octagon.mp3 in Resources */,
 				DA5A4B8123B826E0009118B9 /* Triangle.mp3 in Resources */,
+				DA5A4B8523B85CD3009118B9 /* Wrong.mp3 in Resources */,
+				DA5A4B8623B85CD3009118B9 /* Correct.mp3 in Resources */,
 				DA5A4B7B23B82607009118B9 /* Circle.mp3 in Resources */,
 				DA5A4B7023B824D5009118B9 /* Star.mp3 in Resources */,
 				DA5A4B8223B826E0009118B9 /* Rectangle.mp3 in Resources */,
